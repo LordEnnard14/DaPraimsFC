@@ -1,7 +1,7 @@
 import React from 'react';
 import {AppBar, Toolbar, Typography, Button, Box} from '@mui/material';
 import {useNavigate} from 'react-router-dom';
-import Logo from "../IMAGENES/logo.PNG";
+import Logo from "../IMAGENES/LO.jpeg";
 
 const Header = () =>{
     const navigate = useNavigate();
@@ -31,13 +31,25 @@ const Header = () =>{
             {/**Aqui ira el menu de navegación */}
             <Toolbar sx={{justifyContent:"center",backgroundColor: "gold"}}>
                 <Button onClick={()=>navigate("/")}
-                sx={{color:"black", fontWeight: "bold"}}>INICIO</Button>
+                sx={{color:"black", fontWeight: "bold", '&:hover':{
+                    backgroundColor: "black",
+                    color: "white"
+                }}}>INICIO</Button>
                 <Button onClick={()=>navigate("/History")} 
-                sx={{color:"black", fontWeight: "bold"}}>HISTORIA</Button>
+                sx={{color:"black", fontWeight: "bold", '&:hover':{
+                    backgroundColor: "black",
+                    color: "white"
+                }}}>HISTORIA</Button>
                 <Button onClick={()=>navigate("/Team")} 
-                sx={{color:"black", fontWeight: "bold"}}>EQUIPO</Button>
+                sx={{color:"black", fontWeight: "bold", '&:hover':{
+                    backgroundColor: "black",
+                    color: "white"
+                }}}>EQUIPO</Button>
                 <Button onClick={()=>navigate("/Gallery")} 
-                sx={{color:"black", fontWeight: "bold"}}>GALERÍA</Button>
+                sx={{color:"black", fontWeight: "bold", '&:hover':{
+                    backgroundColor: "black",
+                    color: "white"
+                }}}>GALERÍA</Button>
             </Toolbar>
         </AppBar>
     );

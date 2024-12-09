@@ -1,59 +1,96 @@
 import { Typography } from '@mui/material';
-import { Container, Box} from '@mui/system';
-import React, { Component } from 'react';
+import { Container, Box } from '@mui/system';
+import React from 'react';
 import Header from '../COMPONENTES/Header';
 import DP2 from '../IMAGENES/dp3.jpeg';
-import DP3 from '../IMAGENES/dp6.jpeg'
+import DP3 from '../IMAGENES/dp6.jpeg';
 import DP4 from '../IMAGENES/dp5.jpeg';
+import BackgroundImage from '../IMAGENES/fondo1.jpg';
 
 const History = () => {
     const images = [
-        {img:DP2,text:"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque fringilla metus tortor, nec imperdiet massa ultrices ut. Suspendisse sed neque urna. In sit amet lacinia ligula, quis condimentum orci. Praesent pharetra ac neque et imperdiet. Etiam pellentesque tincidunt placerat. Mauris sed congue magna. Vivamus placerat leo a arcu volutpat, vitae varius ex ullamcorper. Morbi bibendum massa maximus imperdiet maximus. Phasellus venenatis, leo at lacinia imperdiet, mauris nisi scelerisque tortor, in luctus turpis sem scelerisque quam. In facilisis viverra pretium. Vivamus tempor sagittis augue sit amet ultricies. Donec egestas lorem ut erat hendrerit suscipit."},
-        {img:DP3,text:"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque fringilla metus tortor, nec imperdiet massa ultrices ut. Suspendisse sed neque urna. In sit amet lacinia ligula, quis condimentum orci. Praesent pharetra ac neque et imperdiet. Etiam pellentesque tincidunt placerat. Mauris sed congue magna. Vivamus placerat leo a arcu volutpat, vitae varius ex ullamcorper. Morbi bibendum massa maximus imperdiet maximus. Phasellus venenatis, leo at lacinia imperdiet, mauris nisi scelerisque tortor, in luctus turpis sem scelerisque quam. In facilisis viverra pretium. Vivamus tempor sagittis augue sit amet ultricies. Donec egestas lorem ut erat hendrerit suscipit."},
-        {img:DP4,text:"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque fringilla metus tortor, nec imperdiet massa ultrices ut. Suspendisse sed neque urna. In sit amet lacinia ligula, quis condimentum orci. Praesent pharetra ac neque et imperdiet. Etiam pellentesque tincidunt placerat. Mauris sed congue magna. Vivamus placerat leo a arcu volutpat, vitae varius ex ullamcorper. Morbi bibendum massa maximus imperdiet maximus. Phasellus venenatis, leo at lacinia imperdiet, mauris nisi scelerisque tortor, in luctus turpis sem scelerisque quam. In facilisis viverra pretium. Vivamus tempor sagittis augue sit amet ultricies. Donec egestas lorem ut erat hendrerit suscipit."}
-    ]
-    return(
+        { img: DP2, title: "Inicios familiares", text: "Todo comenzó en el año 2013, cuando un grupo de primos de la familia Churampi Garibaldi decidieron reunirse para jugar pequeños partidos de fútbol. Lo que comenzó como encuentros informales para pasar el tiempo, pronto se convirtió en una tradición familiar sólida." },
+        { img: DP3, title: "El complejo de Matachico", text: "La elección del lugar favorito para jugar fue el complejo deportivo de Matachico, fundado en los años 1940. Aunque actualmente está en proceso de remodelación, sigue siendo el lugar donde todos sienten una conexión especial y un fuerte sentido de pertenencia." },
+        { img: DP4, title: "Formación del equipo", text: "Desde 2019 y 2020, formar un equipo sólido no fue fácil debido a las diferencias en experiencia y edad entre los primos, especialmente entre los más jóvenes. Sin embargo, a partir del 2022, finalmente se logró definir un equipo titular compuesto por 9 primos y 2 tíos, quienes trabajan juntos con esfuerzo y dedicación." }
+    ];
+
+    return (
         <>
-            <Header/>
-            <Container>
-                {images.map((item,index) => (
-                    <Box
-                    key={index}
+            <Header />
+            <Box
+                sx={{
+                    backgroundImage: `url(${BackgroundImage})`,
+                    backgroundSize: 'auto',
+                    backgroundPosition: 'top left',
+                    backgroundRepeat: 'repeat',
+                    minHeight: '100%',
+                    position: 'relative',
+                }}
+            >
+                <Box
                     sx={{
-                        display:"flex",
-                        flexDirection: index%2 === 0?'row':'row-reverse', //Con esto se puede alternar la dirección
-                        alignItems: "center",
-                        mb:4 //Esto divide las secciones de imágenes
+                        position: 'absolute',
+                        top: 0,
+                        left: 0,
+                        width: '100%',
+                        height: '100%',
+                        backgroundColor: 'rgba(0, 0, 0, 0.8)',
+                        zIndex: 1,
                     }}
-                    > 
-                    <Box
-                        component="img"
-                        src={item.img}
-                        alt={`Imagen ${index + 1}`}
-                        sx={{
-                            width:'300px',
-                            height:'auto',
-                            boxShadow: 5,
-                            mr: index % 2 === 0 ? 2 : 0, // Margen derecho si la imagen está a la izquierda
-                            ml: index % 2 !== 0 ? 2 : 0, // Margen izquierdo si la imagen está a la derecha
-                        }}
-                    />
-                    <Typography
-                        variant="body1"
-                        sx={{
-                            fontSize:'15px',
-                            color: "black",
-                            textAlign: "justify",
-                            maxWidth: "400px"
-                        }}
-                    >
-                        {item.text}
-                    </Typography>
-                    </Box>
-                ))}
-            </Container>
+                />
+                
+                {/* Contenido principal */}
+                <Container sx={{ position: 'relative', zIndex: 2, paddingTop: '20px' }}>
+                    {images.map((item, index) => (
+                        <Box
+                            key={index}
+                            sx={{
+                                display: "flex",
+                                flexDirection: index % 2 === 0 ? 'row' : 'row-reverse',
+                                alignItems: "center",
+                                mb: 3,
+                            }}
+                        >
+                            {/* Imagen */}
+                            <Box
+                                component="img"
+                                src={item.img}
+                                alt={`Imagen ${index + 1}`}
+                                sx={{
+                                    width: '180px',
+                                    height: 'auto',
+                                    boxShadow: 5,
+                                    border: '10px solid white',
+                                    borderRadius: "3%",
+                                    transform: index === 0 ? 'rotate(-90deg)' : 'none',
+                                    mr: index % 2 === 0 ? 10 : 0,
+                                    ml: index % 2 !== 0 ? 10 : 0
+                                }}
+                            />
+                            
+                            {/* Texto y subtítulo */}
+                            <Box sx={{ ml: index % 2 === 0 ? 15 : 0 }}>
+                                <Typography variant="h6" sx={{ fontWeight: 'bold', color: "white" }}>
+                                    {item.title}
+                                </Typography>
+                                <Typography
+                                    variant="body1"
+                                    sx={{
+                                        fontSize: '15px',
+                                        color: "white",
+                                        textAlign: "justify",
+                                        maxWidth: "400px"
+                                    }}
+                                >
+                                    {item.text}
+                                </Typography>
+                            </Box>
+                        </Box>
+                    ))}
+                </Container>
+            </Box>
         </>
     );
-}
+};
 
 export default History;

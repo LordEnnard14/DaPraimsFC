@@ -1,41 +1,58 @@
 import React from 'react';
-import {Box, Typography} from '@mui/material';
+import { Box, Typography } from '@mui/material';
 
-const PlayerCard = ({name,number,photo}) => {
-    return(
-        <>
+const PlayerCard = ({ name, number, photo }) => {
+    return (
+        <Box
+            sx={{
+                display: 'flex',
+                flexDirection: 'column',
+                alignItems: 'center',
+                justifyContent: 'center',
+                padding: '15px',
+                width: '170px',
+                height: '300px',
+                backgroundColor: 'black',
+                borderRadius: "14px",
+                boxShadow: 5,
+                overflow: 'hidden',
+                transition: 'all 0.3s ease',
+                '&:hover': {
+                    backgroundColor: 'white',
+                    boxShadow: 12,
+                },
+                '&:hover h6, &:hover body2': {
+                    color: 'black',
+                }
+            }}
+        >
             <Box
+                component="img"
+                src={photo}
+                alt={name}
                 sx={{
-                    displax:'flex',
-                    flexDirection:'column',
-                    alignItems: 'center',
-                    border: '1px solid #ddd',
-                    padding: '16px',
-                    boxShadow: 10,
-                    width: '150px',
-                    height: '250px',
-                    backgroundColor: 'f9f9f9',
+                    width: '160px',
+                    height: '180px',
+                    objectFit: 'cover',
+                    borderRadius: '10%',
+                    marginBottom: '12px',
+                    border: '5px solid white',
                 }}
+            />
+            <Typography
+                variant="h6"
+                sx={{ color: "white", fontSize: '20px', fontFamily: "'Impact', fantasy" }}
             >
-                <Box
-                    component='img'
-                    src = {photo}
-                    sx={{
-                        width: '100px',
-                        height: '100px',
-                        borderRadius: '10%',
-                        objectFit: 'cover',
-                        marginBottom: '8px'
-                    }}
-                />
-                <Typography variant="h6" sx={{ fontSize:'16px',fontWeight:'bold', textAlign: 'center'}}>
-                    {name}
-                </Typography>
-                <Typography variant="body2" sx={{fontSize:'14px', fontWeight:'bold', textAlign: 'center'}}>
-                    Dorsal: {number}
-                </Typography>
-            </Box>
-        </>
+                {name}
+            </Typography>
+            <Typography
+                variant="body2"
+                sx={{ color: "gold", mt: "4px", fontSize: '50px', fontFamily: "'Impact', fantasy" }}
+            >
+                {number}
+            </Typography>
+        </Box>
+
     );
 }
 

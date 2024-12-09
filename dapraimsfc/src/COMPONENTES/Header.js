@@ -21,7 +21,7 @@ const Header = () =>{
                             borderRadius: "50%"
                         }}
                     />
-                <Typography variant="h5" sx={{color:"white", textAlign: "center", fontWeight: "bold"}}>
+                <Typography variant="h5" sx={{color:"white", textAlign: "center", fontFamily: "'Impact', fantasy"}}>
                     DA' PRAIMS FC
                 </Typography>
                 </Box>

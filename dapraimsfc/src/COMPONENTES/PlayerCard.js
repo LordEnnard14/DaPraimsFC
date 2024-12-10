@@ -1,9 +1,14 @@
 import React from 'react';
 import { Box, Typography } from '@mui/material';
-
-const PlayerCard = ({ name, number, photo }) => {
+import { useNavigate } from 'react-router-dom';
+const PlayerCard = ({ id, name, number, photo }) => {
+    const navigate = useNavigate();
+    const handleClick = () => {
+        navigate(`/Player/${id}`);
+    };
     return (
         <Box
+            onClick = {handleClick}
             sx={{
                 display: 'flex',
                 flexDirection: 'column',

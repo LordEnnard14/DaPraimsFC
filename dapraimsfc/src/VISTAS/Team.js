@@ -15,16 +15,16 @@ import P10 from '../IMAGENES/Kevin.jpeg';
 import Backg from '../IMAGENES/PRAIMS.jpg';
 
 const players = [
-    { name: 'Andrés Churampi', number: 14, photo: P1, position: 'Mediocampista' },
-    { name: 'Arturo Churampi', number: 24, photo: P2, position: 'Mediocampista' },
-    { name: 'Gonzalo Churampi', number: 10, photo: P3, position: 'Delantero' },
-    { name: 'Alvin Churampi', number: 9, photo: P4, position: 'Defensa' },
-    { name: 'Marcelo López', number: 7, photo: P5, position: 'Delantero' },
-    { name: 'Andrés Esteban', number: 2, photo: P6, position: 'Defensa' },
-    { name: 'Leonardo Banda', number: 4, photo: P7, position: 'Defensa' },
-    { name: 'Mathias Churampi', number: 8, photo: P8, position: 'Defensa' },
-    { name: 'Valentino Churampi', number: 11, photo: P9, position: 'Mediocampista' },
-    { name: 'Jim Esteban', number: 12, photo: P10, position: 'Arquero' },
+    { id:1, name: 'Andrés Churampi', number: 14, photo: P1, position: 'Mediocampista' },
+    { id:2,name: 'Arturo Churampi', number: 24, photo: P2, position: 'Mediocampista' },
+    { id:3,name: 'Gonzalo Churampi', number: 10, photo: P3, position: 'Delantero' },
+    { id:4,name: 'Alvin Churampi', number: 9, photo: P4, position: 'Defensa' },
+    { id:5,name: 'Marcelo López', number: 7, photo: P5, position: 'Delantero' },
+    { id:6,name: 'Andrés Esteban', number: 2, photo: P6, position: 'Defensa' },
+    { id:7,name: 'Leonardo Banda', number: 4, photo: P7, position: 'Defensa' },
+    { id:8,name: 'Mathias Churampi', number: 8, photo: P8, position: 'Defensa' },
+    { id:9,name: 'Valentino Churampi', number: 11, photo: P9, position: 'Mediocampista' },
+    { id:10,name: 'Jim Esteban', number: 12, photo: P10, position: 'Arquero' },
 ];
 
 const Team = () => {
@@ -87,7 +87,7 @@ const Team = () => {
                                                   alignItems: 'center'
                                               }}
                                         >
-                                            <PlayerCard name={player.name} number={player.number} photo={player.photo} />
+                                            <PlayerCard id= {player.id} name={player.name} number={player.number} photo={player.photo} />
                                         </Grid>
                                     ))}
                                 </Grid>
